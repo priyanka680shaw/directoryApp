@@ -15,6 +15,13 @@ const AddNewPerson = ({listUserData , setListUserData}) => {
       
     } , [listUserData])
 
+ function deleterHandler(id){
+    const deleteData = listUserData && listUserData.filter((data)=> id != data.mobileNo)
+    console.log(deleteData);
+    setListUserData(deleteData);
+    localStorage.setItem("data" , deleteData)
+
+ }
     //localStorage.setItem("data" , JSON.stringify(listUserData))
    
   return (
@@ -44,7 +51,9 @@ const AddNewPerson = ({listUserData , setListUserData}) => {
                                     <td className='border-2 border-black text-center'>{data.addharNo}</td>
                                     <td className='border-2 border-black text-center'>{data.mobileNo}</td>
                                     <td className='border-2 border-black text-center'>{data.age}</td>
-                                    <td className='border-2 border-black text-center'>Delete</td>
+                                    <td className='border-2 border-black text-center hover:cursor-pointer hover:text-red-800' onClick={()=>{
+                                        deleterHandler(data.mobileNo)
+                                    }}>Delete</td>
                                 </tr>
                                         </>
                                     )
