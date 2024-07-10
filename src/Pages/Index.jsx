@@ -12,7 +12,7 @@ export const Index = () => {
    useEffect(()=>{
      const data = (localStorage.getItem("data"))
      console.log("local," ,data.length)
-        if(data != undefined &&  data.length >0){
+        if(data != undefined){
             setListUserData(JSON.parse(data));
         }
    },[])
