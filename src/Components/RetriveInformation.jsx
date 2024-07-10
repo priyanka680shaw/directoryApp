@@ -32,8 +32,15 @@ function RetrieveInformation({listUserData}){
                         filteredData && filteredData.map((data , index)=>{
                           //  console.log("data" , data)
                             return(
-                                <div key={index}>
-                                <p>{data.name}</p>
+                                <div key={index} className="p-2 border-2 border-black w-[300px]">
+                                <p>user Id : {index+1}</p>
+                                <p>Name : {data.name}</p>
+                                <p>Addhar Card No : {data.addharNo}</p>
+                                <p> Age : {data.age}</p>
+                                <p>Date : {data.date}</p>
+                                <p> Mobile Number : {data.
+mobileNo
+}</p>
                                 </div>
                             )
                         })
