@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddNewPerson from '../Components/AddNewPerson'
 
 import RetrieveInformation from '../Components/RetriveInformation'
 export const Index = () => {
 
-  
+    const [listUserData , setListUserData] = useState([])  
    const [addnewPerson, setAddNewPerson] = useState(true)
    const [retriveInformation , setRetriveInformation] = useState(false)
+   //to get data from localStorage
+   useEffect(()=>{
+     const data = JSON.parse(localStorage.getItem("data"))
+     setListUserData(data);
+   },[])
+
 
     return (
         <div>
@@ -39,8 +45,8 @@ export const Index = () => {
                         retriveInformation &&  <div className='tpoicCsalled w-[300px] border-2 border-black text-center font-semibold text-xl mb-2'><p className='p-2'>Retrive Information</p></div>
                     }
                     {/* **********************************middle part injext data************************* */}
-                        {addnewPerson &&  <AddNewPerson/>}
-                        {retriveInformation && <RetrieveInformation/> }
+                        {addnewPerson &&  <AddNewPerson listUserData = {listUserData}  setListUserData = {setListUserData}/>}
+                        {retriveInformation && <RetrieveInformation listUserData={listUserData}/> }
                           {/* **************************************************** */}
                 </div>
             </div>

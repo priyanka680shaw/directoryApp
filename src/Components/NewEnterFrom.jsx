@@ -84,9 +84,12 @@ const NewEnterFrom = ({ setUserData, setListUserData, listUserData, setAddData }
       age,
       mobileNo
     };
-    setUserData(data);
+    //setUserData(data);
     setAddData(false)
+   
     setListUserData([...listUserData, data]);
+ 
+    //  localStorage.setItem("data" , JSON.stringify(listUserData))
   }
 
   function calculateAge(dob) {

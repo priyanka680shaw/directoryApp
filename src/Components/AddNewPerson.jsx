@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react'
 import NewEnterFrom from './NewEnterFrom'
 
-const AddNewPerson = () => {
+const AddNewPerson = ({listUserData , setListUserData}) => {
     const [addData, setAddData] = useState(false)
     const [userData , setUserData] = useState();
-    const [listUserData , setListUserData] = useState([{
-        name  : "piku",
-        date : "45678",
-        addharNo : "23456789",
-        age : 55,
-        mobileNo : 234567890
-
-    }])
+   
     console.log("sdfghjkl" , userData)
     console.log("userList" , listUserData)
-    // useEffect(()=>{
-    //     setListUserData([...listUserData , userData])
-    //     console.log("userList" , listUserData)
-    // } , [userData])
+    
+    useEffect(()=>{
+        if(listUserData.length > 0 ){
+            localStorage.setItem("data" , JSON.stringify(listUserData))
+        }
+      
+    } , [listUserData])
+
+    //localStorage.setItem("data" , JSON.stringify(listUserData))
    
   return (
     <>
@@ -40,7 +38,7 @@ const AddNewPerson = () => {
                                 listUserData && listUserData.map((data , index)=>{
                                     return(
                                         <>
-                                        <tr>
+                                    <tr key={index}>
                                     <td className='border-2 border-black text-center'>{data.name}</td>
                                     <td className='border-2 border-black text-center'>{data.date}</td>
                                     <td className='border-2 border-black text-center'>{data.addharNo}</td>
