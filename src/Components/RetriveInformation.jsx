@@ -6,13 +6,13 @@ function RetrieveInformation({listUserData}){
     const [filteredData , setFiltered] = useState([])
     //console.log("SA" ,searchByAadhar)
 
-    // function findDataHandler(){
-    //     setFiltered((prev)=>{
-    //         const filteredData = listUserData.filter((data)=>data.addharNo == searchByAadhar)
-    //         console.log("filteredData" , filteredData)
-    //         return filteredData;
-    //     })
-    // }
+    function findDataHandler(){
+        setFiltered((prev)=>{
+            const filteredData = listUserData.filter((data)=>data.addharNo == searchByAadhar)
+            console.log("filteredData" , filteredData)
+            return filteredData;
+        })
+    }
     // useEffect(()=>{
     //    // console.log("aadhar" , searchByAadhar)
         
@@ -25,7 +25,9 @@ function RetrieveInformation({listUserData}){
                     //console.log(e.target.value)
                     setSearchByAadhar(e.target.value)
                 }}/>
-                <button className="py-4 px-6  bg-blue-600 text-white font-semibold" >Find</button>
+                <button className="py-4 px-6  bg-blue-600 text-white font-semibold" onClick={()=>{
+                    findDataHandler()
+                }}>Find</button>
                 <div className="matchedData">
                     {
                          
