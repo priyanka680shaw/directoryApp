@@ -4,8 +4,7 @@ import AddNewPerson from '../Components/AddNewPerson'
 import RetrieveInformation from '../Components/RetriveInformation'
 export const Index = () => {
 
-    const [listUserData , setListUserData] = useState([]
-);  
+    const [listUserData , setListUserData] = useState([]);  
    const [addnewPerson, setAddNewPerson] = useState(true)
    const [retriveInformation , setRetriveInformation] = useState(false)
    //to get data from localStorage
